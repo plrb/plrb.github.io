@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
 <title>Living Agenda CC19</title>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
 <script>
 
 //the below function searches incrementally within a public folder for a certain file name format 
@@ -21,7 +21,7 @@ function buildPhotoFormDiv()
 	for (i=1;i<=50;i++){
 		//urlCheck = "http://malsup.github.io/images/p" + i + ".jpg"; //control sample from url above
 		//urlCheck = "http://www.plrb.org/public2/LivingAgendaPhotos2019/p" + i + ".jpg";
-		urlCheck = "http://plrb.github.io/LivingAgendaPhotos2019/p" + i + ".jpg";
+		urlCheck = "https://plrb.github.io/LivingAgendaPhotos2019/p" + i + ".jpg";
 		$.ajax({
 			url:urlCheck,
 			type:'head',
@@ -38,7 +38,7 @@ function buildPhotoFormDiv()
 				//alert(counting);
 				//html = "<img src=\"http://malsup.github.io/images/p" + counting + ".jpg\">"; //control sample from url above
 				//html = "<img src=\"http://www.plrb.org/public2/LivingAgendaPhotos2019/p" + counting + ".jpg\">";
-				html = "<img src=\"http://plrb.github.io/LivingAgendaPhotos2019/p" + counting + ".jpg\">";
+				html = "<img src=\"https://plrb.github.io/LivingAgendaPhotos2019/p" + counting + ".jpg\">";
 				$("div#photos").append(html);
 			}	
 		});
@@ -53,7 +53,7 @@ function buildScheduleFormDiv()
 	
 	var ii=1;
 	for (ii=1;ii<=50;ii++){
-		urlCheckk = "http://plrb.github.io/LivingAgendaSchedule2019/s" + ii + ".jpg";
+		urlCheckk = "https://plrb.github.io/LivingAgendaSchedule2019/s" + ii + ".jpg";
 		$.ajax({
 			url:urlCheckk,
 			type:'head',
@@ -65,7 +65,7 @@ function buildScheduleFormDiv()
 			{
 				//file exists
 				countingg++;
-				htmll = "<img src=\"http://plrb.github.io/LivingAgendaSchedule2019/s" + countingg + ".jpg\">";
+				htmll = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/s" + countingg + ".jpg\">";
 				$("div#schedule").append(htmll);
 			}	
 		});
@@ -80,7 +80,7 @@ $(document).ready(function()
 	buildScheduleFormDiv();
 	
 	//load this plugin slideshow script after page is built so that it takes effect upon the class 'cycle-slideshow'
-	$.getScript( "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" )
+	$.getScript( "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" )
 	  .done(function( script, textStatus ) {
 		console.log( textStatus );
 	  })
@@ -88,7 +88,7 @@ $(document).ready(function()
 		$( "div.log" ).text( "Triggered ajaxError handler." );
 	});
 	
-	$.getScript( "http://malsup.github.com/jquery.cycle2.js" )
+	$.getScript( "https://malsup.github.com/jquery.cycle2.js" )
 	  .done(function( script, textStatus ) {
 		console.log( textStatus );
 	  })
