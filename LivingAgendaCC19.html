@@ -52,6 +52,7 @@ function buildScheduleFormDiv()
 	var countingg=0;
 	
 	var ii=1;
+	var thanks = false;
 	for (ii=1;ii<=50;ii++){
 		urlCheckk = "https://plrb.github.io/LivingAgendaSchedule2019/s" + ii + ".jpg";
 		$.ajax({
@@ -60,6 +61,12 @@ function buildScheduleFormDiv()
 			error: function()
 			{
 				//file does not exist
+				//throw in the Thank You slide at the end of the rotation, remove this if you are not using a concluding GIF
+				if (thanks) {
+					html = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">";
+					$("div#schedule").append(html);
+				}
+				thanks = true;
 			},
 			success: function()
 			{
@@ -119,9 +126,9 @@ photos {
 </style>
 </head>
     <body bgcolor="#e02627">
-        <div id="schedule" class="cycle-slideshow" data-cycle-timeout="18500" style="margin-right:10px !important;">
+        <div id="schedule" class="cycle-slideshow" data-cycle-timeout="8500" style="margin-right:10px !important;">
         </div>
-        <div id="photos" class="cycle-slideshow" data-cycle-timeout="14000">
+        <div id="photos" class="cycle-slideshow" data-cycle-timeout="4000">
         </div>
     </body>
 </html>
