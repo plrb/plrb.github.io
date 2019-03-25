@@ -88,7 +88,7 @@ $(document).ready(function()
 	buildScheduleFormDiv();
 	
 	//load this plugin slideshow script after page is built so that it takes effect upon the class 'cycle-slideshow'
-	$.getScript( "https://plrb.github.io/jquery/jquery.min.js" )
+	$.getScript( "https://plrb.github.io/jquery/jquery-min.js" )
 	  .done(function( script, textStatus ) {
 		console.log( textStatus );
 	  })
@@ -96,7 +96,7 @@ $(document).ready(function()
 		$( "div.log" ).text( "Triggered ajaxError handler." );
 	});
 	
-	$.getScript( "https://plrb.github.io/jquery/jquery.cycle2.js" )
+	$.getScript( "https://plrb.github.io/jquery/jquery-cycle2.js" )
 	  .done(function( script, textStatus ) {
 		console.log( textStatus );
 	  })
