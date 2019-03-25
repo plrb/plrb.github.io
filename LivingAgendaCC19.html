@@ -48,6 +48,7 @@ function buildPhotoFormDiv()
 function buildScheduleFormDiv()
 {
 	var htmll;
+	var thanks = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">";
 	var urlCheckk;
 	var countingg=0;
 	
@@ -65,15 +66,12 @@ function buildScheduleFormDiv()
 			{
 				//file exists
 				countingg++;
+				//$("div#schedule").detach(thanks);
 				htmll = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/s" + countingg + ".jpg\">";
 				$("div#schedule").append(htmll);
+				$("div#schedule").append(thanks);
 			}	
 		});
-		if (ii == 50) {
-			//throw in the Thank You slide at the end of the rotation, remove this if you are not using a concluding GIF
-			htmll = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">";
-			$("div#schedule").append(htmll);
-		}
 	}
 }
 //end schedule function
