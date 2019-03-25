@@ -71,10 +71,8 @@ function buildScheduleFormDiv()
 		});
 		if (ii == 50) {
 			//throw in the Thank You slide at the end of the rotation, remove this if you are not using a concluding GIF
-			if (thanks) {
-				html = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">";
-				$("div#schedule").append(html);
-			}
+			html = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">";
+			$("div#schedule").append(html);
 		}
 	}
 }
