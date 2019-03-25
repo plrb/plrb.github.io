@@ -48,9 +48,10 @@ function buildPhotoFormDiv()
 function buildScheduleFormDiv()
 {
 	var htmll;
-	var thanks = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">";
+	var thanks = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">"; // this is a concluding GIF animation
 	var urlCheckk;
 	var countingg=0;
+	var lastSlide = false;
 	
 	var ii=1;
 	for (ii=1;ii<=50;ii++){
@@ -61,16 +62,20 @@ function buildScheduleFormDiv()
 			error: function()
 			{
 				//file does not exist
+				if (!lastSlide) { 
+					//add concluding GIF animation
+					$("div#schedule").append(thanks);
+					lastSlide = true;
+				}
 			},
 			success: function()
 			{
 				//file exists
+				//alert(lastSlide);
 				countingg++;
-				//$("div#schedule").detach(thanks);
 				htmll = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/s" + countingg + ".jpg\">";
 				$("div#schedule").append(htmll);
-				$("div#schedule").append(thanks);
-			}	
+			}		
 		});
 	}
 }
