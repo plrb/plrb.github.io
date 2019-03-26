@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
 <title>Living Agenda CC19</title>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
+<script src="https://plrb.github.io/jquery/jquery-1.7.js"></script>
+<script src="https://plrb.github.io/jquery/jquery-ui.js"></script>
 <script>
 
 //the below function searches incrementally within a public folder for a certain file name format 
@@ -48,11 +48,12 @@ function buildPhotoFormDiv()
 function buildScheduleFormDiv()
 {
 	var htmll;
+	var thanks = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">"; // this is a concluding GIF animation
 	var urlCheckk;
 	var countingg=0;
+	var lastSlide = false;
 	
 	var ii=1;
-	var thanks = false;
 	for (ii=1;ii<=50;ii++){
 		urlCheckk = "https://plrb.github.io/LivingAgendaSchedule2019/s" + ii + ".jpg";
 		$.ajax({
@@ -61,20 +62,20 @@ function buildScheduleFormDiv()
 			error: function()
 			{
 				//file does not exist
-				//throw in the Thank You slide at the end of the rotation, remove this if you are not using a concluding GIF
-				if (thanks) {
-					html = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/ThankYou.gif\">";
-					$("div#schedule").append(html);
+				if (!lastSlide) { 
+					//add concluding GIF animation
+					$("div#schedule").append(thanks);
+					lastSlide = true;
 				}
-				thanks = true;
 			},
 			success: function()
 			{
 				//file exists
+				//alert(lastSlide);
 				countingg++;
 				htmll = "<img src=\"https://plrb.github.io/LivingAgendaSchedule2019/s" + countingg + ".jpg\">";
 				$("div#schedule").append(htmll);
-			}	
+			}		
 		});
 	}
 }
@@ -87,7 +88,7 @@ $(document).ready(function()
 	buildScheduleFormDiv();
 	
 	//load this plugin slideshow script after page is built so that it takes effect upon the class 'cycle-slideshow'
-	$.getScript( "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" )
+	$.getScript( "https://plrb.github.io/jquery/jquery.min.js" )
 	  .done(function( script, textStatus ) {
 		console.log( textStatus );
 	  })
@@ -95,7 +96,7 @@ $(document).ready(function()
 		$( "div.log" ).text( "Triggered ajaxError handler." );
 	});
 	
-	$.getScript( "https://malsup.github.com/jquery.cycle2.js" )
+	$.getScript( "http://malsup.github.com/jquery.cycle2.js" )
 	  .done(function( script, textStatus ) {
 		console.log( textStatus );
 	  })
